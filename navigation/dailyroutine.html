@@ -11,91 +11,129 @@ nav: true
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Persistent Full-Day Schedule</title>
+  <title>Daily Routine Planner | SD Auto</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
   <style>
-   body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
+    /* SD Auto Professional Daily Routine Styles */
+    body {
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      padding: 0;
       margin: 0;
-      background: linear-gradient(to bottom, #f7f9fc, #eef2f6);
-      color: #333;
+      color: #1e293b;
     }
 
     h2 {
-      margin-bottom: 20px;
-      color: #7C3AED;
+      margin-bottom: 24px;
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #0066cc 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .trip-link {
-      display: inline-block;
-      margin-bottom: 20px;
-      padding: 10px 20px;
-      background-color: #4F46E5;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
     }
 
     .trip-link:hover {
-      background-color: #4338CA;
+      background: linear-gradient(135deg, #0052a3 0%, #004080 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
     }
 
     form {
-      background-color: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      padding: 28px;
+      border-radius: 20px;
+      box-shadow: 
+        0 4px 6px -1px rgba(0, 102, 204, 0.05),
+        0 10px 15px -3px rgba(0, 102, 204, 0.08);
+      border: 1px solid rgba(0, 102, 204, 0.08);
+      margin-bottom: 32px;
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
-      align-items: center;
+      gap: 16px;
+      align-items: end;
       position: relative;
     }
 
     label {
-      font-weight: bold;
-      color: #0055ff;
+      display: block;
+      font-weight: 600;
+      color: #0066cc;
+      font-size: 14px;
+      margin-bottom: 6px;
+      letter-spacing: 0.025em;
     }
 
-    input, select, button {
-      padding: 10px;
-      font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+    input, select {
+      padding: 14px 18px;
+      font-size: 15px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      background-color: #f8fafc;
+      color: #1e293b;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      min-width: 180px;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #0066cc;
+      background-color: #ffffff;
+      box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
     }
 
     button {
-      cursor: pointer;
-      background-color: #9333EA;
-      color: white;
+      padding: 14px 24px;
+      font-size: 15px;
       border: none;
-      transition: background-color 0.2s ease;
-    }
-
-    button:hover {
-      background-color: #7C3AED;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.3s ease;
     }
 
     .add-button {
-      background-color: #9333EA;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
     }
 
     .add-button:hover {
-      background-color: #7C3AED;
+      background: linear-gradient(135deg, #0052a3 0%, #004080 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
     }
 
     .favorites-btn {
-      background-color: #10B981;
-      margin-top: -10px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      margin-top: 0;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
     }
 
     .favorites-btn:hover {
-      background-color: #059669;
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
     }
 
     .favorites-dropdown {
@@ -104,71 +142,112 @@ nav: true
       left: 0;
       right: 0;
       background: white;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
       z-index: 10;
       max-height: 200px;
       overflow-y: auto;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0, 102, 204, 0.15);
+      margin-top: 4px;
+    }
+
+    .favorites-dropdown div {
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .favorites-dropdown div:last-child {
+      border-bottom: none;
+    }
+
+    .favorites-dropdown div:hover {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      color: #0066cc;
     }
 
     .route-actions {
       display: flex;
-      gap: 5px;
-      margin-top: 8px;
+      gap: 8px;
+      margin-top: 12px;
     }
 
     .route-actions button {
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 6px;
+      font-size: 13px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 600;
     }
 
     .route-actions .edit-btn {
-      background-color: #ffc107;
-      color: black;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
     }
 
     .route-actions .edit-btn:hover {
-      background-color: #e0a800;
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      transform: translateY(-1px);
     }
 
     .route-actions .delete-btn {
-      background-color: #dc3545;
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
       color: white;
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.25);
     }
 
     .route-actions .delete-btn:hover {
-      background-color: #c82333;
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      transform: translateY(-1px);
     }
 
     .route-actions .navigate-btn {
-      background-color: #007bff;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
       color: white;
+      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25);
     }
 
     .route-actions .navigate-btn:hover {
-      background-color: #0056b3;
+      background: linear-gradient(135deg, #0052a3 0%, #004080 100%);
+      transform: translateY(-1px);
     }
 
     table {
       width: 100%;
-      border-collapse: collapse;
-      background-color: #ede9fe;
-      border-radius: 12px;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: white;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 
+        0 4px 6px -1px rgba(0, 102, 204, 0.05),
+        0 10px 15px -3px rgba(0, 102, 204, 0.08);
+      border: 1px solid rgba(0, 102, 204, 0.08);
     }
 
     th, td {
-      border: 1px solid #dcdcdc;
-      padding: 12px;
+      border: none;
+      border-bottom: 1px solid #f1f5f9;
+      padding: 16px 20px;
       vertical-align: top;
     }
 
     th {
-      background-color: #f4f0ff;
-      color: #7C3AED;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      color: #0066cc;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      background: white;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
     }
 
     ul {
@@ -178,13 +257,19 @@ nav: true
     }
 
     li {
-      background: white;
-      margin-bottom: 10px;
-      padding: 12px;
-      border-radius: 10px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      margin-bottom: 12px;
+      padding: 16px;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.06);
+      border: 1px solid rgba(0, 102, 204, 0.06);
       cursor: grab;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transition: all 0.2s ease;
+    }
+
+    li:hover {
+      border-color: rgba(0, 102, 204, 0.15);
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
     }
 
     li:active {
@@ -192,9 +277,10 @@ nav: true
     }
 
     .sortable-chosen {
-      opacity: 0.8;
-      transform: scale(1.02);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      opacity: 0.9;
+      transform: scale(1.02) rotate(1deg);
+      box-shadow: 0 8px 25px rgba(0, 102, 204, 0.2);
+      border-color: #0066cc;
     }
 
     .sortable-ghost {

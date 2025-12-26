@@ -11,134 +11,274 @@ nav: true
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Local Businesses</title>
+  <title>Local Businesses | SD Auto</title>
   <style>
+    /* SD Auto Professional Local Businesses Styles */
     :root {
-      --main-color: #6a1b9a;
-      --main-color-dark: #4a148c;
-      --text-dark: #2c2c2c;
+      --primary-500: #0066cc;
+      --primary-600: #0052a3;
+      --primary-700: #004080;
+      --accent-500: #06b6d4;
+      --accent-600: #0891b2;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
       --white: #ffffff;
-      --bg: #f3f0fa;
-      --shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+      --bg-light: #f8fafc;
+      --border-light: rgba(0, 102, 204, 0.08);
+      --shadow-soft: 0 4px 6px -1px rgba(0, 102, 204, 0.05), 0 10px 15px -3px rgba(0, 102, 204, 0.08);
+      --shadow-medium: 0 10px 15px -3px rgba(0, 102, 204, 0.1), 0 20px 25px -5px rgba(0, 102, 204, 0.1);
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg);
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       margin: 0;
-      padding: 40px 20px;
-      color: var(--text-dark);
+      padding: 0;
+      color: var(--text-primary);
     }
 
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .page-header .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary-500);
+      margin-bottom: 16px;
+    }
+
+    .page-header h1 {
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #0066cc 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0 0 16px 0;
+    }
+
+    .page-header p {
+      color: var(--text-secondary);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Container Grid */
     .container {
-      max-width: 1100px;
-      margin: auto;
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 32px;
     }
 
+    /* Business Card */
     .business-card {
-      background-color: var(--main-color);
-      border-radius: 20px;
-      color: white;
-      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, var(--white) 0%, var(--bg-light) 100%);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-light);
       display: flex;
       flex-direction: column;
-      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
     }
 
+    .business-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-500), var(--accent-500));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .business-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .business-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Card Title */
     .title {
       text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      padding: 16px;
-      background: var(--main-color-dark);
+      font-size: 20px;
+      font-weight: 700;
+      padding: 24px 24px 0;
+      background: transparent;
+      color: var(--text-primary);
+      position: relative;
     }
 
+    .title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-500), var(--accent-500));
+      border-radius: 2px;
+      margin: 16px auto 0;
+    }
+
+    /* Top Section */
     .top-section {
       display: flex;
-      gap: 20px;
-      padding: 20px;
+      gap: 24px;
+      padding: 24px;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
     }
 
+    /* Card Image */
     .cover-img {
       flex-shrink: 0;
-      width: 160px;
-      height: 160px;
+      width: 140px;
+      height: 140px;
       object-fit: cover;
-      border-radius: 15px;
-      border: 3px solid white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 102, 204, 0.15);
+      border: 3px solid var(--white);
+      transition: transform 0.3s ease;
     }
 
+    .business-card:hover .cover-img {
+      transform: scale(1.05);
+    }
+
+    /* Visit Button */
     .visit-btn {
-      background: white;
-      color: var(--main-color-dark);
-      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+      color: var(--white);
+      padding: 14px 28px;
       border: none;
-      border-radius: 12px;
-      font-weight: bold;
-      font-size: 0.95rem;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 15px;
       text-decoration: none;
       text-align: center;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
     }
 
     .visit-btn:hover {
-      background-color: #e6e6f0;
+      background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 102, 204, 0.35);
     }
 
+    .visit-btn:hover::before {
+      left: 100%;
+    }
+
+    /* Text Bubble */
     .text-bubble {
-      background-color: white;
-      color: var(--text-dark);
-      border-radius: 20px;
-      margin: 0 20px 20px;
-      padding: 16px;
-      line-height: 1.6;
-      font-size: 0.95rem;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      color: var(--text-primary);
+      border-radius: 16px;
+      margin: 0 24px 24px;
+      padding: 20px;
+      line-height: 1.7;
+      font-size: 15px;
       position: relative;
+      border-left: 4px solid var(--primary-500);
     }
 
-    .text-bubble::before {
-      content: "";
-      position: absolute;
-      top: -10px;
-      left: 30px;
-      width: 20px;
-      height: 20px;
-      background: white;
-      transform: rotate(45deg);
-      border-radius: 4px;
-    }
-
-    /* Specific styling for wide image layout */
+    /* Wide Image Card */
     .wide-card {
-      padding-bottom: 10px;
+      padding-bottom: 0;
     }
 
     .wide-img-wrapper {
       width: 100%;
       display: flex;
       justify-content: center;
-      background-color: var(--white);
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      padding: 20px;
     }
 
     .cover-wide-img {
-      width: 100%;
+      width: calc(100% - 40px);
       max-height: 220px;
       object-fit: cover;
-      border-bottom: 3px solid var(--main-color-dark);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 102, 204, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .business-card:hover .cover-wide-img {
+      transform: scale(1.02);
     }
 
     .visit-btn-wrapper {
       text-align: center;
-      padding: 15px 0 0;
+      padding: 20px 0;
     }
 
-    @media (max-width: 600px) {
+    /* Dark Mode Support */
+    .dark .business-card {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border-color: rgba(148, 163, 184, 0.1);
+    }
+
+    .dark .title {
+      color: #e2e8f0;
+    }
+
+    .dark .text-bubble {
+      background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+      color: #e2e8f0;
+      border-left-color: #60a5fa;
+    }
+
+    .dark .wide-img-wrapper {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    .dark .page-header p {
+      color: #94a3b8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+      }
+
       .top-section {
         flex-direction: column;
         align-items: center;
@@ -147,30 +287,47 @@ nav: true
 
       .cover-img {
         width: 100%;
+        max-width: 200px;
         height: auto;
+        aspect-ratio: 1;
       }
 
       .visit-btn {
         width: 100%;
-        margin-top: 15px;
+        justify-content: center;
+        margin-top: 16px;
       }
 
       .text-bubble {
-        margin: 20px;
-      }
-
-      .text-bubble::before {
-        left: 20px;
+        margin: 0 16px 20px;
       }
 
       .cover-wide-img {
         max-height: none;
         height: auto;
       }
+
+      .page-header h1 {
+        font-size: 28px;
+      }
+
+      .page-header p {
+        font-size: 16px;
+        padding: 0 16px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="badge">
+      <span>🏢</span> Supporting Local Economy
+    </div>
+    <h1>San Diego Local Businesses</h1>
+    <p>Discover and support amazing local businesses in San Diego. Every visit helps strengthen our community.</p>
+  </div>
 
   <div class="container">
 
@@ -179,7 +336,14 @@ nav: true
       <div class="title">ActiveMed Integrative Health Center</div>
       <div class="top-section">
         <img class="cover-img" src="{{site.baseurl}}/images/bus.png" alt="ActiveMed Image">
-        <a href="https://activemedhealth.com/" target="_blank" class="visit-btn">Visit Site</a>
+        <a href="https://activemedhealth.com/" target="_blank" class="visit-btn">
+          <span>Visit Site</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
       </div>
       <div class="text-bubble">
         We believe in a collaborative approach to healthcare. We offer acupuncture, massage therapy, functional medicine, physical therapy, and axon therapy.
@@ -193,7 +357,14 @@ nav: true
         <img class="cover-wide-img" src="{{site.baseurl}}/images/Screenshot 2025-07-23 at 8.34.48 AM.png" alt="Digital One Image">
       </div>
       <div class="visit-btn-wrapper">
-        <a href="https://d1printing.net/" target="_blank" class="visit-btn">Visit Site</a>
+        <a href="https://d1printing.net/" target="_blank" class="visit-btn">
+          <span>Visit Site</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
       </div>
       <div class="text-bubble">
         Digital One Printing is your premier one-stop Poway printshop that offers a wide range of services, has many years of experience and a tremendous reputation. Digital, Offset, Large Format, Posters, Banners, Trade show graphics, Signs, Promotional Products, Bindery and more.
@@ -204,5 +375,3 @@ nav: true
 
 </body>
 </html>
-
-
