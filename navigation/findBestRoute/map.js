@@ -4,6 +4,20 @@ import polyline from 'https://cdn.skypack.dev/@mapbox/polyline';
 const apiUrl = `${pythonURI}/api/get_routes`;
 const routeUsageUrl = `${pythonURI}/api/subscription/route-usage`;
 
+// Get the base URL from the page (set by Jekyll)
+function getBaseUrl() {
+  const trigger = document.querySelector('.trigger');
+  if (trigger && trigger.getAttribute('data-baseurl')) {
+    return trigger.getAttribute('data-baseurl');
+  }
+  // Fallback: try to extract from current URL or use known baseurl
+  const pathMatch = window.location.pathname.match(/^(\/[^\/]+)/);
+  if (pathMatch && pathMatch[1] !== '/route') {
+    return pathMatch[1];
+  }
+  return '/SD_Auto_Frontend'; // Hardcoded fallback
+}
+
 const map = L.map('map').setView([32.7157, -117.1611], 12);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors',
@@ -65,7 +79,7 @@ function showLimitReachedModal(data) {
             class="flex-1 py-3 px-4 rounded-xl bg-gray-700 text-white font-semibold hover:bg-gray-600 transition-colors">
             Close
           </button>
-          <a href="${data.upgrade_url || '/pricing'}" 
+          <a href="${getBaseUrl()}/pricing" 
             class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-semibold text-center hover:from-yellow-600 hover:to-yellow-700 transition-all">
             Upgrade Now
           </a>

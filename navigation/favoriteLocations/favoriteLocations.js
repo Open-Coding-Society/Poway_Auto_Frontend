@@ -64,6 +64,11 @@ async function populateScores() {
     square.addEventListener('click', () => showPopup(location)); // Add click event to show popup
     grid.appendChild(square);
   });
+  
+  // Update usage display after populating
+  if (typeof window.updateUsageDisplay === 'function') {
+    window.updateUsageDisplay();
+  }
 }
 
 async function filterForUsername(scores) {
