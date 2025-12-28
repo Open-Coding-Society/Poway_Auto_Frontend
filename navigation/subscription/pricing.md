@@ -69,7 +69,7 @@ menu: nav/home.html
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          Basic route finding (1/day)
+          Find Best Route (<span class="text-yellow-400 font-medium">4 per day</span>)
         </li>
         <li class="flex items-center text-gray-300">
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,25 +87,25 @@ menu: nav/home.html
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          Community hangouts
+          View community events
         </li>
         <li class="flex items-center text-gray-500">
           <svg class="w-5 h-5 text-gray-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
-          <span class="line-through">Daily routine planner</span>
+          <span class="line-through">Daily Routine Planner</span>
         </li>
         <li class="flex items-center text-gray-500">
           <svg class="w-5 h-5 text-gray-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
-          <span class="line-through">Save favorite locations</span>
+          <span class="line-through">Favorite Locations</span>
         </li>
         <li class="flex items-center text-gray-500">
           <svg class="w-5 h-5 text-gray-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
-          <span class="line-through">Report incidents</span>
+          <span class="line-through">Report Traffic Incidents</span>
         </li>
       </ul>
       
@@ -142,43 +142,43 @@ menu: nav/home.html
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          <span class="text-green-400 font-medium">Unlimited</span>&nbsp;route finding
+          Find Best Route (<span class="text-green-400 font-medium">50 routes/day</span>)
         </li>
         <li class="flex items-center text-gray-300">
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          Daily routine planner
+          Daily Routine Planner
         </li>
         <li class="flex items-center text-gray-300">
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          Save up to <span class="text-green-400 font-medium">10</span>&nbsp;favorite locations
+          Save up to <span class="text-green-400 font-medium">10</span> Favorite Locations
         </li>
         <li class="flex items-center text-gray-300">
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          Report traffic incidents
+          Report Traffic Incidents
         </li>
         <li class="flex items-center text-gray-300">
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          Priority email support
+          View traffic updates
+        </li>
+        <li class="flex items-center text-gray-300">
+          <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          Browse local businesses
         </li>
         <li class="flex items-center text-gray-500">
           <svg class="w-5 h-5 text-gray-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
-          <span class="line-through">AI-route predictions</span>
-        </li>
-        <li class="flex items-center text-gray-500">
-          <svg class="w-5 h-5 text-gray-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-          <span class="line-through">Advanced analytics</span>
+          <span class="line-through">Unlimited routes & locations</span>
         </li>
       </ul>
       
@@ -216,31 +216,31 @@ menu: nav/home.html
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          <span class="text-green-400 font-medium">Unlimited</span>&nbsp;favorite locations
+          <span class="text-green-400 font-medium">Unlimited</span> routes per day
         </li>
         <li class="flex items-center text-gray-300">
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          AI-powered route predictions
+          <span class="text-green-400 font-medium">Unlimited</span> Favorite Locations
         </li>
         <li class="flex items-center text-gray-300">
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          Advanced traffic analytics
+          Daily Routine Planner
         </li>
         <li class="flex items-center text-gray-300">
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          Early access to new features
+          Report Traffic Incidents
         </li>
         <li class="flex items-center text-gray-300">
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          Ad-free experience
+          All community features
         </li>
         <li class="flex items-center text-gray-300">
           <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -284,7 +284,7 @@ menu: nav/home.html
       </details>
       <details class="bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 p-4 cursor-pointer">
         <summary class="text-white font-semibold">What payment methods do you accept?</summary>
-        <p class="text-gray-400 mt-3">We accept all major credit cards including Visa, Mastercard, American Express, and Discover through our secure Stripe payment processing.</p>
+        <p class="text-gray-400 mt-3">We accept <strong class="text-blue-400">PayPal</strong> (credit/debit card or PayPal balance) for instant activation, or <strong class="text-purple-400">Zelle</strong> bank transfers for those who prefer no processing fees. PayPal payments activate your subscription immediately, while Zelle payments are verified within 24 hours.</p>
       </details>
       <details class="bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 p-4 cursor-pointer">
         <summary class="text-white font-semibold">Can I upgrade or downgrade my plan?</summary>
